@@ -33,7 +33,9 @@ class ContactIndex extends React.Component{
             email: "paul@dotnetmastery.com",
             isFavorite: true,
           },
-      ]
+      ],
+      selectedContact: undefined,
+      isUpdating: false,
      }
    }
    handleAddContact =(newContact)=>{   
@@ -104,6 +106,15 @@ class ContactIndex extends React.Component{
     });
   }
 
+  handleUpdateClick = (contact)=>{
+   this.setState((prevState)=>{
+      return{
+        selectedContact : contact,
+        isUpdating :true,  
+      }
+    });
+  };
+
       render(){
         return(
                 <div>
@@ -119,17 +130,18 @@ class ContactIndex extends React.Component{
                              </div>
                              <div className="row py-2">
                                  <div className="col-8 offset-2 row">
-                                 <AddContact handleAddContact ={this.handleAddContact}/>
+                                 <AddContact  isUpdating ={this.state.isUpdating} 
+                                 selectedContact= {this.state.selectedContact} handleAddContact ={this.handleAddContact}/>
                               </div>
                              </div>
                              <div className="row py-2">
                              <div className="col-8 offset-2 row">
-                                <FavoriteContacts contacts = {this.state.contactList.filter((u)=>u.isFavorite == true)} favoriteClick = {this.handleToggleFavorite} deleteContact={this.handleDeleteContact}/>
+                                <FavoriteContacts contacts = {this.state.contactList.filter((u)=>u.isFavorite == true)} favoriteClick = {this.handleToggleFavorite} deleteContact={this.handleDeleteContact} handleUpdateClick = {this.handleUpdateClick}/>
                              </div>
                              </div>
                              <div className="row py-2">
                              <div className="col-8 offset-2 row">
-                                <GeneralContacts contacts = {this.state.contactList.filter((u)=>u.isFavorite == false)} favoriteClick = {this.handleToggleFavorite} deleteContact={this.handleDeleteContact}/>
+                                <GeneralContacts contacts = {this.state.contactList.filter((u)=>u.isFavorite == false)} favoriteClick = {this.handleToggleFavorite} deleteContact={this.handleDeleteContact} handleUpdateClick ={this.handleUpdateClick}/>
                              </div>
                              </div>
                          </div>
