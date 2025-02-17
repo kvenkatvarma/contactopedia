@@ -21,7 +21,7 @@ const  Contact = (props) => {
           <button className="btn btn-primary btn-sm m-1">
             <i className="bi bi-pencil-square" style={{fontSize : "1rem"}}></i>
           </button>
-          <button className="btn btn-danger btn-sm m-1">
+          <button className="btn btn-danger btn-sm m-1" onClick={()=>{props.deleteContact(props.contact.id)}}>
              <i className="bi bi-trash-fill" style={{fontSize : "1rem"}}></i>          
           </button>
         </div>            
