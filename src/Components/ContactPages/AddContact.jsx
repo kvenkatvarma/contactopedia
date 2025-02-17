@@ -26,6 +26,10 @@ class AddContact extends React.Component {
       }
    }
 
+   handleCancel =()=>{
+      this.props.cancelUpdateContact();
+     }
+   
      render(){
     return (
       <div className="border col-12 text-white p-2">

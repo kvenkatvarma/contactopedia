@@ -115,6 +115,15 @@ class ContactIndex extends React.Component{
     });
   };
 
+  handleCancelUpdateContact = (contact)=>{
+   this.setState((prevState)=>{
+      return{
+        selectedContact : undefined,
+        isUpdating :false,  
+      }
+    });
+  };
+ 
       render(){
         return(
                 <div>
@@ -122,7 +131,7 @@ class ContactIndex extends React.Component{
                     <div className="container" style={{minHeight : "85vh"}}>
                          <div className="row py-3">
                              <div className="col-4 offset-2 row">                            
-                                 <AddRandomContact handleAddRandomcontact = {this.handleAddRandomcontact}/>                             
+                                 <AddRandomContact handleAddRandomcontact = {this.handleAddRandomcontact} />                             
                              </div>
                              <div className="col-4 row">
                               
@@ -131,7 +140,7 @@ class ContactIndex extends React.Component{
                              <div className="row py-2">
                                  <div className="col-8 offset-2 row">
                                  <AddContact  isUpdating ={this.state.isUpdating} 
-                                 selectedContact= {this.state.selectedContact} handleAddContact ={this.handleAddContact}/>
+                                 selectedContact= {this.state.selectedContact} handleAddContact ={this.handleAddContact} cancelUpdateContact = {this.handleCancelUpdateContact}/>
                               </div>
                              </div>
                              <div className="row py-2">
