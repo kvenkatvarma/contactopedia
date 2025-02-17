@@ -42,20 +42,27 @@ class ContactIndex extends React.Component{
                     <Header/>
                     <div className="container" style={{minHeight : "85vh"}}>
                          <div className="row py-3">
-                             <div className="col-4 offset-2">
-                                <AddRandomContact/>
+                             <div className="col-4 offset-2">                            
+                                 <AddRandomContact/>                             
                              </div>
                              <div className="col-4">
+                              
                                 <RemoveAllContact/>
                              </div>
                              <div className="row py-2">
-                                <AddContact/>
+                                 <div className="col-8 offset-2 row">
+                                 <AddContact/>
+                              </div>
                              </div>
                              <div className="row py-2">
+                             <div className="col-8 offset-2 row">
                                 <FavoriteContacts contacts = {this.state.contactList.filter((u)=>u.isFavorite == true)}/>
                              </div>
+                             </div>
                              <div className="row py-2">
+                             <div className="col-8 offset-2 row">
                                 <GeneralContacts contacts = {this.state.contactList.filter((u)=>u.isFavorite == false)}/>
+                             </div>
                              </div>
                          </div>
                     </div>
