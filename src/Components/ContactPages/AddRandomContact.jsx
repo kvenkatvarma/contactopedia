@@ -1,7 +1,12 @@
+import { getRandomUser } from "../../Utility/aip";
+
+const GetRandomContact =async()=>{
+  const responseFromAPI = await getRandomUser();
+}
 const  AddRandomContact = () => {
     return (
       <div>
-       <button className="btn btn-danger form-control">Add Random Contact</button>
+       <button className="btn btn-success form-control" onClick={()=> GetRandomContact()}>Add Random Contact</button>
       </div>
     );
   };
